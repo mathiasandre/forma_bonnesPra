@@ -21,11 +21,18 @@ mise en forme :
 lecture de ``yaml`` :
 `yaml::read_yaml("secrets.yaml")$JETON`
 
-dans une fonction : 
+- vérification des arguments dans une fonction : 
 ``match.arg(b,
             c("moyenne",
               "variance",
               "ecart-type",
               "sd",
               "ecart type")
+  )``
+
+- évaluation par cas dans une fonction : 
+``  switch(b,
+         moyenne = mean(a, ...),
+         variance = var(a, ...),
+         sd(a, ...)
   )``
