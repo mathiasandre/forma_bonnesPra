@@ -42,3 +42,6 @@ lecture de ``yaml`` :
 ``usethis::use_description(check_name = FALSE)`` 
 - Import description d'un package
 ``usethis::use_package("ggplot2")``
+
+- warning pour `tidyverse` : 
+`use_package("tidyverse", type = "depends")
