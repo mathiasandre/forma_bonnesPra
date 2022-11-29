@@ -1,4 +1,4 @@
-# forma_bonnesPra
+# Quelques choses à retenir de la formation bonnes pratiques
 
 
 support formation : 
