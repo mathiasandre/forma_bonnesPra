@@ -7,6 +7,8 @@ support formation :
 ressource : 
 - https://eliocamp.github.io/reproducibility-with-r/
 
+format de documentation roxygen2 : 
+- https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html 
 
 # des bouts de code :
 config GIT : 
