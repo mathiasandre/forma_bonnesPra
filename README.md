@@ -13,7 +13,9 @@ format de documentation roxygen2 :
 documentation Renv : 
 - https://rstudio.github.io/renv/articles/renv.html 
 - https://elise.maigne.pages.mia.inra.fr/2021_package_renv/presentation.html#1
-- 
+
+- Page `targets` sur `utiltR` : https://www.book.utilitr.org/targets.html 
+
 # des bouts de code :
 config GIT : 
 `git config --global credential.helper store`
@@ -56,4 +58,12 @@ lecture de ``yaml`` :
 2- Développement du projet
 3- Enregistrement des versions des packages installés : `renv::status()`
 4- Restauration d’un environnement : `renv::restore()`
+
+#`Targets`: 
+- fichier d'exemple : https://books.ropensci.org/targets/walkthrough.html 
+prendre le target-script-file 
+
+
+
+
 
