@@ -44,4 +44,12 @@ lecture de ``yaml`` :
 ``usethis::use_package("ggplot2")``
 
 - warning pour `tidyverse` : 
-`use_package("tidyverse", type = "depends")
+`use_package("tidyverse", type = "depends")`
+
+# `REnv` : 
+`https://inseefrlab.github.io/formation-bonnes-pratiques-R/#/utilisation-de-renv`
+1- Initialisation : `renv::init()`
+2- Développement du projet
+3- Enregistrement des versions des packages installés : `renv::status()`
+4- Restauration d’un environnement : `renv::restore()`
+
