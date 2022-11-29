@@ -9,22 +9,11 @@ library(dplyr)
 
 # j'importe les données avec read_csv2 parce que c'est un csv avec des ;
 # et que read_csv attend comme separateur des ,
-df <- readr::read_csv2(
-  "individu_reg.csv",
-  col_names = c(
-    "region", "aemm", "aged", "anai", "catl", "cs1", "cs2", "cs3",
-    "couple", "na38", "naf08", "pnai12", "sexe", "surf", "tp",
-    "trans", "ur"
-  )
-)
-
-# y a un truc qui va pas avec l'import, je corrige
-colnames(df) <- df[1, ]
-df <- df[2:nrow(df), ]
+df <- readr::read_csv2("individu_reg.csv")
 
 df2 <- df %>%
-  select(c(
-    "region", "dept", "aemm", "aged", "anai", "catl", "cs1", "cs2",
+  dplyr::select(c(
+    "region", "aemm", "aged", "anai", "catl", "cs1", "cs2",
     "cs3", "couple", "na38", "naf08", "pnai12", "sexe", "surf", "tp",
     "trans", "ur"
   ))
@@ -60,7 +49,7 @@ ggplot(df2[as.numeric(df2$aged) > 50, c(3, 4)], aes(
 
 
 
-# part d'homme dans chaque cohort
+# part d'homme dans chaque cohorte
 ggplot(df %>%
          group_by(aged, sexe) %>%
          summarise(SH_sexe = n()) %>%
