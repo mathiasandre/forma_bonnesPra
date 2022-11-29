@@ -9,6 +9,9 @@ ressource :
 
 
 # des bouts de code :
+config GIT : 
+git config --global credential.helper store
 
-lintr::lint("script.R")
-styler::style_file("script.R")
+
+`lintr::lint("script.R")`
+`styler::style_file("script.R")`
