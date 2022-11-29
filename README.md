@@ -59,7 +59,7 @@ lecture de ``yaml`` :
 3- Enregistrement des versions des packages installés : `renv::status()`
 4- Restauration d’un environnement : `renv::restore()`
 
-#`Targets`: 
+# `Targets`: 
 - fichier d'exemple : https://books.ropensci.org/targets/walkthrough.html 
 prendre le target-script-file 
 
