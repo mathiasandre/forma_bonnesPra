@@ -5,3 +5,4 @@
 individu_reg.*
 *.Rproj
 secrets.yaml
+_targets/
