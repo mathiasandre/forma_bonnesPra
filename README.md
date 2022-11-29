@@ -12,12 +12,14 @@ ressource :
 config GIT : 
 `git config --global credential.helper store`
 
-
+mise en forme : 
 `lintr::lint("script.R")`
 `styler::style_file("script.R")`
+
+lecture de ``yaml`` :
 `yaml::read_yaml("secrets.yaml")$JETON`
 
-
+dans une fonction : 
 ``match.arg(b,
             c("moyenne",
               "variance",
