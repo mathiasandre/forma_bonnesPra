@@ -13,41 +13,14 @@ library(forcats)
 library(MASS)
 library(yaml)
 
+source("R/functions.R", encoding = "UTF-8")
+
 
 
 # ENVIRONNEMENT ----------------------------
 
-api_token <- yaml::read_yaml("secrets.yaml")$JETON_API
+api_token <- yaml::read_yaml("R/secrets.yaml")$JETON_API
 
-
-
-# FONCTIONS ----------------------------
-
-decennie_a_partir_annee <- function(annee) {
-  return(annee - annee %% 10)
-}
-
-# fonction de stat agregee
-fonction_de_stat_agregee <- function(a, b = "moyenne", ...) {
-  checkvalue <- FALSE
-  for (x in c("moyenne", "variance", "ecart-type", "sd")) {
-    checkvalue <- (checkvalue | b == x)
-  }
-  if (checkvalue == FALSE) stop("statistique non supportée")
-  
-  if (b == "moyenne") {
-    x <- mean(a, na.rm = TRUE, ...)
-  } else if (b == "ecart-type" || b == "sd") {
-    x <- sd(a, na.rm = TRUE, ...)
-  } else if (b == "variance") {
-    x <- var(a, na.rm = TRUE, ...)
-  }
-  return(x)
-}
-
-fonction_de_stat_agregee(rnorm(10))
-fonction_de_stat_agregee(rnorm(10), "ecart-type")
-fonction_de_stat_agregee(rnorm(10), "variance")
 
 
 
@@ -169,22 +142,22 @@ ggsave("p.png", p)
 
 # STATS AGREGEES =================
 
-fonction_de_stat_agregee(df %>%
-                           filter(sexe == "Homme") %>%
-                           mutate(aged = aged) %>%
-                           pull(aged))
-fonction_de_stat_agregee(df %>%
-                           filter(sexe == "Femme") %>%
-                           mutate(aged = aged) %>%
-                           pull(aged))
-fonction_de_stat_agregee(df %>%
-                           filter(sexe == "Homme" & couple == "2") %>%
-                           mutate(aged = aged) %>%
-                           pull(aged))
-fonction_de_stat_agregee(df %>%
-                           filter(sexe == "Femme" & couple == "2") %>%
-                           mutate(aged = aged) %>%
-                           pull(aged))
+stats_agregees(df %>%
+                 filter(sexe == "Homme") %>%
+                 mutate(aged = aged) %>%
+                 pull(aged))
+stats_agregees(df %>%
+                 filter(sexe == "Femme") %>%
+                 mutate(aged = aged) %>%
+                 pull(aged))
+stats_agregees(df %>%
+                 filter(sexe == "Homme" & couple == "2") %>%
+                 mutate(aged = aged) %>%
+                 pull(aged))
+stats_agregees(df %>%
+                 filter(sexe == "Femme" & couple == "2") %>%
+                 mutate(aged = aged) %>%
+                 pull(aged))
 
 # MODELISATION =================
 
