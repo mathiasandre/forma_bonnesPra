@@ -16,3 +16,12 @@ config GIT :
 `lintr::lint("script.R")`
 `styler::style_file("script.R")`
 `yaml::read_yaml("secrets.yaml")$JETON`
+
+
+``match.arg(b,
+            c("moyenne",
+              "variance",
+              "ecart-type",
+              "sd",
+              "ecart type")
+  )``
