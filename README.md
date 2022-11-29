@@ -6,3 +6,9 @@ support formation :
 
 ressource : 
 - https://eliocamp.github.io/reproducibility-with-r/
+
+
+# des bouts de code :
+
+lintr::lint("script.R")
+styler::style_file("script.R")
