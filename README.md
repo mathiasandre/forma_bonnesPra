@@ -15,3 +15,4 @@ config GIT :
 
 `lintr::lint("script.R")`
 `styler::style_file("script.R")`
+`yaml::read_yaml("secrets.yaml")$JETON`
