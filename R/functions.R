@@ -1,4 +1,10 @@
 
+library(dplyr)
+library(forcats)
+library(MASS)
+library(yaml)
+library(gt)
+
 decennie_a_partir_annee <- function(annee) {
   return(annee - annee %% 10)
 }
@@ -28,4 +34,48 @@ stats_agregees <- function(a, b = "moyenne",
          sd(a, ...)
   )
   
+}
+
+read_yaml_secret <- function(path, key) {
+  return(yaml::read_yaml(path)[[key]])
+}
+
+read_from_parquet <- function(path) {
+  df <- arrow::read_parquet(
+    path,
+    col_select  = c(
+      "region", "aemm", "aged", "anai", "catl", "cs1", "cs2", "cs3",
+      "couple", "na38", "naf08", "pnai12", "sexe", "surf", "tp",
+      "trans", "ur"
+    )
+  )
+  return(df)
+}
+
+produce_table_age <- function(df) {
+  
+  stats_age <- df %>%
+    group_by(decennie = decennie_a_partir_annee(aged)) %>%
+    summarise(n_indiv = n(),
+              n_femmes = sum(sexe == "Femme"),
+              n_hommes = sum(sexe == "Homme")
+    )
+  
+  table_age <- gt(stats_age) %>%
+    tab_header(
+      title = "Distribution de la population par décennie"
+    ) %>%
+    fmt_number(
+      columns = n_indiv,
+      sep_mark = " ",
+      decimals = 0
+    ) %>%
+    cols_label(
+      decennie = "Tranche d'âge",
+      n_indiv = "Population",
+      n_femmes = "Nombre de femmes",
+      n_hommes = "Nombre d'hommes"
+    )
+  
+  return(table_age)
 }
