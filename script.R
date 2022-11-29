@@ -28,8 +28,8 @@ api_token <- yaml::read_yaml("R/secrets.yaml")$JETON_API
 
 # j'importe les données avec read_csv2 parce que c'est un csv avec des ;
 # et que read_csv attend comme separateur des ,
-df <- readr::read_csv2(
-  "individu_reg.csv",
+df <- arrow::read_parquet(
+  "individu_reg.parquet",
   col_select  = c(
     "region", "aemm", "aged", "anai", "catl", "cs1", "cs2", "cs3",
     "couple", "na38", "naf08", "pnai12", "sexe", "surf", "tp",
