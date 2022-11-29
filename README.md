@@ -10,7 +10,7 @@ ressource :
 
 # des bouts de code :
 config GIT : 
-git config --global credential.helper store
+`git config --global credential.helper store`
 
 
 `lintr::lint("script.R")`
