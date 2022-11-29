@@ -36,3 +36,9 @@ lecture de ``yaml`` :
          variance = var(a, ...),
          sd(a, ...)
   )``
+
+# Packages : 
+- Création de fichier de description : 
+``usethis::use_description(check_name = FALSE)`` 
+- Import description d'un package
+``usethis::use_package("ggplot2")``
