@@ -10,6 +10,10 @@ ressource :
 format de documentation roxygen2 : 
 - https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html 
 
+documentation Renv : 
+- https://rstudio.github.io/renv/articles/renv.html 
+- https://elise.maigne.pages.mia.inra.fr/2021_package_renv/presentation.html#1
+- 
 # des bouts de code :
 config GIT : 
 `git config --global credential.helper store`
